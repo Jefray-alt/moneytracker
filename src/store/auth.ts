@@ -1,9 +1,9 @@
-import { loginUser } from './../lib/MoneyTrackerAPI/user';
+import { getloggedInUser, loginUser } from './../lib/MoneyTrackerAPI/user';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref({});
+  const user = ref<null | {}>(null);
 
   async function login(email: string, password: string) {
     const userData = await loginUser(email, password);
@@ -11,5 +11,10 @@ export const useAuthStore = defineStore('auth', () => {
     localStorage.setItem('access_token', userData.accessToken);
   }
 
-  return { user, login };
+  async function loggedInUser() {
+    const userData = await getloggedInUser();
+    user.value = { ...userData };
+  }
+
+  return { user, login, loggedInUser };
 });
