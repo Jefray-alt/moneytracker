@@ -20,14 +20,20 @@ router.beforeEach(async (to, from) => {
   const { user } = storeToRefs(authStore);
   const accessToken = localStorage.getItem('access_token');
 
-  if (!user.value && to.path !== '/login') {
-    return { name: 'login' };
-  } else if (accessToken && to.path !== '/login') {
+  if (!user.value && accessToken && to.path !== '/login') {
     try {
       await loggedInUser();
     } catch (error) {
       return { name: 'login' };
     }
+  }
+
+  if (!accessToken && to.path !== '/login') {
+    return { name: 'login' };
+  }
+
+  if (accessToken && to.path === '/login') {
+    return { name: 'home' };
   }
 
   return true;

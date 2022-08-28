@@ -48,7 +48,7 @@ const submitForm = async () => {
   try {
     await login(email.value, password.value);
     Toast.clear();
-    router.push('home');
+    router.push('/');
   } catch (error) {
     Toast.clear();
   }
