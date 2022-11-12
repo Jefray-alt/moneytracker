@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-screen flex flex-col items-center justify-center">
+  <div class="w-full h-full flex flex-col items-center justify-center">
     <div class="w-full">
       <van-row class="px-4 mb-5">
         <van-col>
@@ -9,18 +9,28 @@
 
       <van-form @submit="submitForm">
         <van-cell-group inset>
-          <van-field v-model="email" name="email" label="Email" placeholder="Enter Email"
-            :rules="[{ required: true, message: 'Email is required' }]" />
-          <van-field v-model="password" type="password" name="Password" label="Password" placeholder="Enter Password"
-            :rules="[{ required: true, message: 'Password is required' }]" />
+          <van-field
+            v-model="email"
+            name="email"
+            label="Email"
+            placeholder="Enter Email"
+            :rules="[{ required: true, message: 'Email is required' }]"
+          />
+          <van-field
+            v-model="password"
+            type="password"
+            name="Password"
+            label="Password"
+            placeholder="Enter Password"
+            :rules="[{ required: true, message: 'Password is required' }]"
+          />
         </van-cell-group>
-        <div style="margin: 16px;">
+        <div style="margin: 16px">
           <van-button round block type="primary" native-type="submit">
             Submit
           </van-button>
         </div>
       </van-form>
-
     </div>
   </div>
 </template>
@@ -42,7 +52,7 @@ const { login } = authStore;
 const submitForm = async () => {
   Toast.loading({
     forbidClick: true,
-    message: 'Loading...'
+    message: 'Loading...',
   });
 
   try {
@@ -53,5 +63,4 @@ const submitForm = async () => {
     Toast.clear();
   }
 };
-
 </script>

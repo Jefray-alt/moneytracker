@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 :root {
-    --van-base-font-family: 'Anek Telugu', sans-serif;
+  --van-base-font-family: 'Anek Telugu', sans-serif;
+}
+
+body {
+  @apply flex justify-center bg-gray-100;
+}
+
+#app {
+  @apply w-full max-w-[390px] h-screen;
 }
