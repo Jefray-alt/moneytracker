@@ -24,6 +24,7 @@ router.beforeEach(async (to, from) => {
     try {
       await loggedInUser();
     } catch (error) {
+      localStorage.removeItem('access_token');
       return { name: 'login' };
     }
   }

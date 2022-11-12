@@ -26,7 +26,7 @@ axiosConfig.interceptors.response.use(
     let refreshedToken = false;
 
     if (
-      error.response.data.message === 'jwt expired' &&
+      error.response.data?.message === 'jwt expired' &&
       (!config?.sent || refreshedToken)
     ) {
       config.sent = true;
