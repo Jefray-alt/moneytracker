@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --van-base-font-family: 'Anek Telugu', sans-serif;
+body {
+  @apply flex justify-center bg-gray-50;
 }
 
 body {
-  @apply flex justify-center bg-gray-100;
+  font-family: 'Anek Telugu', sans-serif !important;
 }
 
 #app {

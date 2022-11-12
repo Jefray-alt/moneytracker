@@ -1,8 +1,6 @@
 <template>
   <van-row>
-    <van-col span="24" class="uppercase font-bold text-[14px] p-[14px]"
-      >Transactions</van-col
-    >
+    <van-col span="24" class="font-bold py-[12px]">Transaction History</van-col>
     <van-col span="24">
       <van-pull-refresh
         v-model="transactionListPr.refreshing"
@@ -14,7 +12,7 @@
           finished-text="No more transactions"
           @load="transactionListLoad"
         >
-          <van-cell v-for="item in transactionList" :key="item" :title="item" />
+          <CustomCard />
         </van-list>
       </van-pull-refresh>
     </van-col>
@@ -22,7 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import { List } from 'vant';
+import CustomCard from '@/components/CustomCard.vue';
+import { List, Toast } from 'vant';
 import { reactive, ref } from 'vue';
 
 const transactionRefObj = reactive({
@@ -36,7 +35,13 @@ const transactionListPr = reactive({
   refreshing: false,
 });
 
-function transactionListPrRefresh() {}
+function transactionListPrRefresh() {
+  setTimeout(() => {
+    Toast('Refresh Success');
+    transactionRefObj.loading = false;
+    transactionListPr.refreshing = false;
+  }, 1000);
+}
 
 const transactionList = ref([1, 2, 3, 4, 5]);
 </script>
