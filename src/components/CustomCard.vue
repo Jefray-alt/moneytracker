@@ -1,9 +1,10 @@
 <template>
-  <van-cell class="rounded-sm shadow" :clickable="true">
-    <van-row>
+  <van-cell class="rounded-sm" :clickable="true">
+    <van-row class="shadow-lg">
       <van-col span="6">
         <div class="flex items-center">
           <van-image
+            fit="cover"
             width="60"
             height="60"
             src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"

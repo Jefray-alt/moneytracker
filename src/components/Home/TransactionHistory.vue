@@ -9,7 +9,6 @@
         <van-list
           v-model:loading="transactionRefObj.loading"
           :finished="transactionRefObj.finished"
-          finished-text="No more transactions"
           @load="transactionListLoad"
         >
           <CustomCard />
