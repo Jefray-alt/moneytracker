@@ -1,6 +1,6 @@
 <template>
-  <van-cell class="rounded-sm" :clickable="true">
-    <van-row class="shadow-lg">
+  <van-cell class="rounded shadow" :clickable="true">
+    <van-row>
       <van-col span="6">
         <div class="flex items-center">
           <van-image

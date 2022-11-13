@@ -3,7 +3,7 @@
   <van-row>
     <van-col span="24">
       <QuickMenu />
-      <TransactionHistory />
+      <TransactionHistory class="mt-[12px]" />
     </van-col>
   </van-row>
 </template>

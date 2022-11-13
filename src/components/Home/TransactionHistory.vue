@@ -10,7 +10,15 @@
           v-model:loading="transactionRefObj.loading"
           :finished="transactionRefObj.finished"
           @load="transactionListLoad"
+          class="space-y-2"
         >
+          <CustomCard />
+          <CustomCard />
+          <CustomCard />
+          <CustomCard />
+          <CustomCard />
+          <CustomCard />
+          <CustomCard />
           <CustomCard />
         </van-list>
       </van-pull-refresh>
