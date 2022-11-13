@@ -8,8 +8,11 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CustomCard: typeof import('./src/components/CustomCard.vue')['default']
+    QuickButton: typeof import('./src/components/Home/QuickButton.vue')['default']
+    QuickMenu: typeof import('./src/components/Home/QuickMenu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TransactionHistory: typeof import('./src/components/Home/TransactionHistory.vue')['default']
     VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
     VanCellGroup: typeof import('vant/es')['CellGroup']
