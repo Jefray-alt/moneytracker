@@ -1,6 +1,6 @@
 <template>
   <van-row>
-    <van-col span="24" class="font-bold py-[12px]">Transaction History</van-col>
+    <van-col span="24" class="font-bold py-[12px]">Latest Transactions</van-col>
     <van-col span="24">
       <van-pull-refresh
         v-model="transactionListPr.refreshing"
@@ -12,9 +12,7 @@
           @load="transactionListLoad"
           class="space-y-2"
         >
-          <CustomCard />
-          <CustomCard />
-          <CustomCard />
+          <!-- Latest 5 transactions only -->
           <CustomCard />
           <CustomCard />
           <CustomCard />

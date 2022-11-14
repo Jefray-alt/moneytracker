@@ -11,14 +11,16 @@
           />
         </div>
       </van-col>
-      <van-col span="17">
+      <van-col span="16" class="px-[12px]">
         <span class="block text-base font-bold text-gray-500">Title</span>
         <div>
           <span class="text-sm">$36 ~ Dec 12, 2019</span>
         </div>
       </van-col>
-      <van-col span="1">
-        <div class="flex items-center h-full"><van-icon name="arrow" /></div>
+      <van-col span="2">
+        <div class="flex items-center h-full justify-end">
+          <van-icon name="arrow" />
+        </div>
       </van-col>
     </van-row>
   </van-cell>
