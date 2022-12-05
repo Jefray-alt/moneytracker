@@ -37,17 +37,28 @@
 
 <script lang="ts" setup>
 import { useAuthStore } from '@/store/auth';
+import { useUIStore } from '@/store/ui';
 import { Cell, CellGroup, Form, Button, Field, Col, Row, Toast } from 'vant';
 import 'vant/lib/toast/style';
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
 const authStore = useAuthStore();
+const uiStore = useUIStore();
 const router = useRouter();
 
 const { login } = authStore;
+const { setTabBarVisibility } = uiStore;
+
+onMounted(() => {
+  setTabBarVisibility(false);
+});
+
+onUnmounted(() => {
+  setTabBarVisibility(true);
+});
 
 const submitForm = async () => {
   Toast.loading({
