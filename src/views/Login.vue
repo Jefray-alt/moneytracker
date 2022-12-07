@@ -41,7 +41,7 @@
 <script lang="ts" setup>
 import { useAuthStore } from '@/store/auth';
 import { useUIStore } from '@/store/ui';
-import { Cell, CellGroup, Form, Button, Field, Col, Row, Toast } from 'vant';
+import { Toast } from 'vant';
 import 'vant/lib/toast/style';
 import { onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
