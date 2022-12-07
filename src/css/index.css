@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply flex justify-center bg-gray-50;
+  @apply flex justify-center;
 }
 
 body {
@@ -11,5 +11,5 @@ body {
 }
 
 #app {
-  @apply w-full max-w-[390px] h-screen;
+  @apply w-full max-w-[390px] h-screen bg-gray-50;
 }

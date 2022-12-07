@@ -25,9 +25,12 @@
             :rules="[{ required: true, message: 'Password is required' }]"
           />
         </van-cell-group>
-        <div style="margin: 16px">
+        <div class="m-[16px] space-y-2">
           <van-button round block type="primary" native-type="submit">
             Submit
+          </van-button>
+          <van-button round block type="default" native-type="submit">
+            Register
           </van-button>
         </div>
       </van-form>
