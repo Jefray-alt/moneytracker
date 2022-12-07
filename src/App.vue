@@ -3,7 +3,7 @@
     <main class="h-full p-5 relative">
       <RouterView />
       <van-tabbar
-        v-show="isTabBarVisible"
+        v-show="!route.meta.fullPage"
         active-color="#4ade80"
         class="!fixed translate-x-[-50%] left-[50%] max-w-[390px]"
         v-model="active"
@@ -18,16 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { RouterView } from 'vue-router';
-import { useUIStore } from '@/store/ui';
+import { ref, watch } from 'vue';
+import { RouterView, useRoute } from 'vue-router';
 
-const uiStore = useUIStore();
-uiStore.$subscribe((mutation, state) => {
-  isTabBarVisible.value = state.showTabBar;
-});
-
-const isTabBarVisible = ref(uiStore.showTabBar);
+const route = useRoute();
 const active = ref(0);
 
 const themeVars = {

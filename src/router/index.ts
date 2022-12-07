@@ -3,10 +3,17 @@ import Login from '../views/Login.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import { useAuthStore } from '@/store/auth';
 import { storeToRefs } from 'pinia';
+import Register from '@/views/Register.vue';
 
 const routes = [
-  { path: '/', component: Home, name: 'home' },
-  { path: '/login', component: Login, name: 'login' },
+  { path: '/', component: Home, name: 'home', meta: { requiresAuth: true } },
+  { path: '/login', component: Login, name: 'login', meta: { fullPage: true } },
+  {
+    path: '/register',
+    component: Register,
+    name: 'register',
+    meta: { fullPage: true },
+  },
 ];
 
 const router = createRouter({
@@ -20,7 +27,7 @@ router.beforeEach(async (to, from) => {
   const { user } = storeToRefs(authStore);
   const accessToken = localStorage.getItem('access_token');
 
-  if (!user.value && accessToken && to.path !== '/login') {
+  if (!user.value && accessToken && to.meta.requiresAuth) {
     try {
       await loggedInUser();
     } catch (error) {
@@ -29,11 +36,11 @@ router.beforeEach(async (to, from) => {
     }
   }
 
-  if (!accessToken && to.path !== '/login') {
+  if (!accessToken && to.meta.requiresAuth) {
     return { name: 'login' };
   }
 
-  if (accessToken && to.path === '/login') {
+  if (accessToken && to.name === 'login') {
     return { name: 'home' };
   }
 

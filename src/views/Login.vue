@@ -29,7 +29,7 @@
           <van-button round block type="primary" native-type="submit">
             Submit
           </van-button>
-          <van-button round block type="default" native-type="submit">
+          <van-button round block type="default" to="register">
             Register
           </van-button>
         </div>
@@ -40,28 +40,17 @@
 
 <script lang="ts" setup>
 import { useAuthStore } from '@/store/auth';
-import { useUIStore } from '@/store/ui';
 import { Toast } from 'vant';
 import 'vant/lib/toast/style';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
 const authStore = useAuthStore();
-const uiStore = useUIStore();
 const router = useRouter();
 
 const { login } = authStore;
-const { setTabBarVisibility } = uiStore;
-
-onMounted(() => {
-  setTabBarVisibility(false);
-});
-
-onUnmounted(() => {
-  setTabBarVisibility(true);
-});
 
 const submitForm = async () => {
   Toast.loading({
