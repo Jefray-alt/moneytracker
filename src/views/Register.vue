@@ -1,6 +1,4 @@
-<template>
-  <div>Register Page</div>
-</template>
+<template>Register Page</template>
 
 <script setup lang="ts"></script>
 

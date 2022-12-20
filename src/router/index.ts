@@ -6,13 +6,23 @@ import { storeToRefs } from 'pinia';
 import Register from '@/views/Register.vue';
 
 const routes = [
-  { path: '/', component: Home, name: 'home', meta: { requiresAuth: true } },
-  { path: '/login', component: Login, name: 'login', meta: { fullPage: true } },
+  {
+    path: '/',
+    component: Home,
+    name: 'home',
+    meta: { requiresAuth: true, showNavbar: false },
+  },
+  {
+    path: '/login',
+    component: Login,
+    name: 'login',
+    meta: { fullPage: true, title: 'Login' },
+  },
   {
     path: '/register',
     component: Register,
     name: 'register',
-    meta: { fullPage: true },
+    meta: { fullPage: true, title: 'Register', showNavbar: true },
   },
 ];
 
