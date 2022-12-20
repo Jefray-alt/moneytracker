@@ -22,7 +22,7 @@ const routes = [
     path: '/register',
     component: Register,
     name: 'register',
-    meta: { fullPage: true, title: 'Register', showNavbar: true },
+    meta: { fullPage: true, title: 'Register', showNavbar: false },
   },
 ];
 
