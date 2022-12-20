@@ -1,6 +1,6 @@
 <template>
   <van-config-provider class="h-full" :theme-vars="themeVars">
-    <main class="h-full">
+    <main>
       <van-nav-bar
         v-show="route.meta.showNavbar"
         :title="(route.meta.title as string)"
