@@ -1,6 +1,6 @@
 <template>
   <van-config-provider class="h-full" :theme-vars="themeVars">
-    <main>
+    <main class="h-full">
       <van-nav-bar
         v-show="route.meta.showNavbar"
         :title="(route.meta.title as string)"
@@ -8,7 +8,13 @@
         left-arrow
         @click-left="onClickLeft"
       />
-      <van-row class="p-5 relative h-full">
+      <van-row
+        class="p-5 relative"
+        :class="{
+          'h-[calc(100%-46px)]': route.meta.showNavbar,
+          'h-full': !route.meta.showNavbar,
+        }"
+      >
         <van-col span="24">
           <RouterView />
           <van-tabbar
