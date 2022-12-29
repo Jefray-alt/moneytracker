@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BasicInformationForm: typeof import('./src/components/Register/BasicInformationForm.vue')['default']
     CustomCard: typeof import('./src/components/CustomCard.vue')['default']
     Header: typeof import('./src/components/Home/Header.vue')['default']
     QuickButton: typeof import('./src/components/Home/QuickButton.vue')['default']
@@ -33,5 +34,6 @@ declare module '@vue/runtime-core' {
     VanRow: typeof import('vant/es')['Row']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
+    WalletInformationForm: typeof import('./src/components/Register/WalletInformationForm.vue')['default']
   }
 }
